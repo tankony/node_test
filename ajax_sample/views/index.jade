@@ -1,0 +1,37 @@
+extends layout
+
+block content
+  script.
+    function func() {
+      var form = new FormData(document.querySelector("#form1"));
+      var xhr = new XMLHttpRequest();
+      xhr.open('POST', '/', true);
+      xhr.responseType = 'json';
+      xhr.onload = function(e) {
+        if (this.status == 200) {
+          var result = this.response;
+          var msg = '<table>'
+            + '<tr><td>mail-address:</td><td>' + result.mail + '</td></tr>'
+            + '<tr><td>tel:</td><td>' + result.tel + '</td></tr>'
+            + '</table>';
+
+          document.querySelector('#msg').innerHTML = msg;
+        }
+      };
+      xhr.send(form);
+    }
+  h1= title
+  p Welcome to #{title}
+  p#msg #{msg}
+  form#form1(method='post', action='javascript:return false;')
+    table
+      tr
+        td
+          p Name:
+        td
+          input#name(type='text', name='name')
+      tr
+        td
+        td
+          input(type='button', value='Ajax', onclick='func();')
+
