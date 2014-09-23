@@ -38,6 +38,7 @@ var routes = {
 };
 
 app.get('/', routes.index.index);
+app.post('/', routes.index.register);
 app.get('/:id', routes.index.redirector);
 
 http.createServer(app).listen(app.get('port'), function(){

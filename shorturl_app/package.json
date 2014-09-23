@@ -9,8 +9,8 @@
     "express": "3.3.8",
     "jade": "*",
     "mysql": "*",
-    "ejs": "*",
     "config": "*",
-    "async": "*"
+    "async": "*",
+    "mocha": "*"
   }
 }
