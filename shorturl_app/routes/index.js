@@ -56,7 +56,6 @@ exports.register = function(req, res){
         ], function (err, enc_id) {
           
           var res_word;
-          console.log(err);
   
           if(err) {
             res_word = err;
